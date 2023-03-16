@@ -1,0 +1,45 @@
+﻿@model IEnumerable<GBCSporting_Huskies.Models.Customer>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Customer Manager</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <a class="text-success text-decoration-none page-options" asp-action="Create">Add New</a>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Firstname)
+                @Html.DisplayFor(modelItem => item.Lastname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            <td>
+                <a class="text-success text-decoration-none page-options" asp-action="Edit" asp-route-id="@item.CustomerId">Edit</a> |
+                <a class="text-success text-decoration-none page-options" asp-action="Details" asp-route-id="@item.CustomerId">Details</a> |
+                <a class="text-success text-decoration-none page-options" asp-action="Delete" asp-route-id="@item.CustomerId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
